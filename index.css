@@ -197,45 +197,70 @@ body {
   border-radius: 12px;
 }
 
-.ownership-chart {
+.ownership-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 3rem;
+  flex-wrap: wrap;
+}
+
+.donut-chart {
+  flex-shrink: 0;
+}
+
+.donut-center-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  fill: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+.donut-segment.segment-primary { stroke: var(--primary-color); }
+.donut-segment.segment-secondary { stroke: var(--secondary-color); }
+.donut-segment.segment-tertiary { stroke: #6c757d; }
+
+.ownership-legend {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-width: 250px;
 }
 
-.shareholder {
+.legend-item {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.legend-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-swatch.swatch-primary { background-color: var(--primary-color); }
+.legend-swatch.swatch-secondary { background-color: var(--secondary-color); }
+.legend-swatch.swatch-tertiary { background-color: #6c757d; }
+
+.legend-info {
+  display: flex;
   justify-content: space-between;
-}
-
-.shareholder-info {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  align-items: baseline;
   gap: 1rem;
 }
 
-.shareholder-bar {
-  height: 20px;
-  background-color: var(--primary-color);
-  border-radius: 4px;
-}
-
-.shareholder-bar.secondary {
-  background-color: var(--secondary-color);
-}
-.shareholder-bar.tertiary {
-  background-color: #6c757d;
-}
-
-.shareholder-name {
-  width: 150px;
+.legend-name {
   font-size: 0.9rem;
+  color: var(--text-color);
 }
 
-.shareholder-percentage {
-  font-weight: 600;
+.legend-percentage {
   font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 

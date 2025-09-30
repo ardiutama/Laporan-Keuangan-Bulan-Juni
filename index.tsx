@@ -116,27 +116,68 @@ const KeyRatios = () => (
     </section>
 );
 
-const ShareholderBar = ({ name, percentage, colorClass }) => (
-    <div className="shareholder">
-        <div className="shareholder-info">
-            <div className={`shareholder-bar ${colorClass}`} style={{ width: `${percentage}%` }}></div>
-            <span className="shareholder-name">{name}</span>
-        </div>
-        <span className="shareholder-percentage">{percentage}%</span>
-    </div>
-);
+const ownershipData = [
+    { name: "I Ketut Artana", percentage: 59.38, colorClass: "primary" },
+    { name: "Ni Wayan Mastriani", percentage: 25.14, colorClass: "secondary" },
+    { name: "Pemegang Saham Lainnya", percentage: 15.48, colorClass: "tertiary" }
+];
+
+const DonutChart = ({ data }) => {
+    const size = 180;
+    const strokeWidth = 25;
+    const radius = (size - strokeWidth) / 2;
+    const circumference = 2 * Math.PI * radius;
+    let cumulativePercent = 0;
+
+    return (
+        <svg className="donut-chart" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+            <g transform={`rotate(-90 ${size/2} ${size/2})`}>
+                {data.map((item, index) => {
+                    const dashoffset = circumference * (1 - (item.percentage / 100));
+                    const rotate = cumulativePercent * 3.6; // 1% = 3.6 degrees
+                    cumulativePercent += item.percentage;
+                    return (
+                        <circle
+                            key={index}
+                            className={`donut-segment segment-${item.colorClass}`}
+                            cx={size / 2}
+                            cy={size / 2}
+                            r={radius}
+                            fill="transparent"
+                            strokeWidth={strokeWidth}
+                            strokeDasharray={`${circumference} ${circumference}`}
+                            strokeDashoffset={dashoffset}
+                            transform={`rotate(${rotate} ${size/2} ${size/2})`}
+                        />
+                    );
+                })}
+            </g>
+            <text className="donut-center-text" x="50%" y="50%" dy=".3em" textAnchor="middle">
+                Saham
+            </text>
+        </svg>
+    );
+};
 
 const OwnershipStructure = () => (
     <section className="ownership">
          <h2 className="section-title">Struktur Kepemilikan Saham</h2>
-         <div className="ownership-chart">
-            <ShareholderBar name="I Ketut Artana" percentage={59.38} colorClass="primary" />
-            <ShareholderBar name="Ni Wayan Mastriani" percentage={25.14} colorClass="secondary" />
-            <ShareholderBar name="Pemegang Saham Lainnya" percentage={15.48} colorClass="tertiary" />
+         <div className="ownership-content">
+            <DonutChart data={ownershipData} />
+            <div className="ownership-legend">
+                {ownershipData.map((item, index) => (
+                    <div className="legend-item" key={index}>
+                        <div className={`legend-swatch swatch-${item.colorClass}`}></div>
+                        <div className="legend-info">
+                            <span className="legend-name">{item.name}</span>
+                            <span className="legend-percentage">{item.percentage}%</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
          </div>
     </section>
 );
-
 
 const App = () => {
     return (
