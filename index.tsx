@@ -128,7 +128,7 @@ const ShareholderBar = ({ name, percentage, colorClass }) => (
 
 const OwnershipStructure = () => (
     <section className="ownership">
-         <h2 className="section-title" style={{color: 'var(--text-color)'}}>Struktur Kepemilikan Saham</h2>
+         <h2 className="section-title">Struktur Kepemilikan Saham</h2>
          <div className="ownership-chart">
             <ShareholderBar name="I Ketut Artana" percentage={59.38} colorClass="primary" />
             <ShareholderBar name="Ni Wayan Mastriani" percentage={25.14} colorClass="secondary" />

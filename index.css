@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #ffffff; /* Was dark blue, now white for headings */
-  --secondary-color: #f0a500;
-  --bg-color: #121212; /* Main page background */
-  --text-color: #e0e0e0; /* Softer white for body text */
-  --light-gray: #2c2c2c; /* For borders and some section bgs */
-  --white: #1e1e1e; /* For card/container backgrounds */
+  --primary-color: #0d2c54;    /* Dark blue for headings and contrast elements */
+  --secondary-color: #f0a500;  /* Gold accent color */
+  --bg-color: #f8f9fa;        /* Very light grey for the main page background */
+  --text-color: #343a40;      /* Dark grey for primary text */
+  --light-gray: #e9ecef;      /* Light grey for borders and some section backgrounds */
+  --white: #ffffff;           /* White for card backgrounds */
   --success-color: #4caf50;
   --danger-color: #f44336;
 }
@@ -34,7 +34,7 @@ body {
 .infographic-container {
   background-color: var(--white);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -100,14 +100,14 @@ body {
   padding: 1.5rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--light-gray);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card .icon {
@@ -133,7 +133,7 @@ body {
 
 .card .comparison {
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: #6c757d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,7 +187,7 @@ body {
 
 .ratio-details p {
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: #6c757d;
 }
 
 
@@ -243,7 +243,7 @@ body {
   text-align: center;
   padding: 1rem;
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: #6c757d;
   background-color: var(--light-gray);
 }
 
